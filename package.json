@@ -10,20 +10,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run webhook\"",
+    "webhook":"lt -p 5000 -s fjoewjf"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^3.6.0",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.3",
+    "localtunnel": "^1.9.0",
     "mongoose": "^5.1.6",
     "nodemon": "^1.17.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-plugin-react": "^7.9.1"
   }
 }
